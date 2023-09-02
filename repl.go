@@ -21,7 +21,15 @@ func startRepl() {
 			continue
 		}
 
-		fmt.Println(text)
+		command := cleaned[0]
+
+		switch command {
+		case "exit":
+			os.Exit(0)
+
+		default:
+			fmt.Println("Invalid command")
+		}
 	}
 }
 
