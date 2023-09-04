@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func callbackMap(cfg *config) error {
+func callbackMap(cfg *config, args ...string) error {
 
 	resp, err := cfg.pokeApiClient.ListLocationAreas(cfg.nextLocationAreaUrl)
 

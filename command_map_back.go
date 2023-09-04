@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func callbackMapBack(cfg *config) error {
+func callbackMapBack(cfg *config, args ...string) error {
 	if cfg.previousLocationAreaUrl == nil {
 		return fmt.Errorf("you're on the first page")
 	}
