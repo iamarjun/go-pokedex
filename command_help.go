@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func callbackHelp() {
+func callbackHelp() error {
 	fmt.Println("Welcome to the Pokedex help menu!")
 	fmt.Println("Available commands")
 	fmt.Println("")
@@ -13,4 +13,6 @@ func callbackHelp() {
 	}
 
 	fmt.Println("")
+
+	return nil
 }
