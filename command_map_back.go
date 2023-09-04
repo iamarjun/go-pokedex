@@ -5,9 +5,12 @@ import (
 	"log"
 )
 
-func callbackMap(cfg *config) error {
+func callbackMapBack(cfg *config) error {
+	if cfg.previousLocationAreaUrl == nil {
+		return fmt.Errorf("you're on the first page")
+	}
 
-	resp, err := cfg.pokeApiClient.ListLocationAreas(cfg.nextLocationAreaUrl)
+	resp, err := cfg.pokeApiClient.ListLocationAreas(cfg.previousLocationAreaUrl)
 
 	if err != nil {
 		log.Fatal(err)
