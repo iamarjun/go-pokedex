@@ -13,12 +13,6 @@ func callbackCatch(cfg *config, args ...string) error {
 	}
 
 	pokemon := args[0]
-	
-	_, ok := cfg.caughtPokemon[pokemon]
-
-	if ok {
-		return fmt.Errorf("%s already caught", pokemon)
-	}
 
 	resp, err := cfg.pokeApiClient.GetPokemon(&pokemon)
 	
