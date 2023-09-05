@@ -13,6 +13,12 @@ func callbackCatch(cfg *config, args ...string) error {
 	}
 
 	pokemon := args[0]
+	
+	_, ok := cfg.caughtPokemon[pokemon]
+
+	if ok {
+		return fmt.Errorf("%s already caught", pokemon)
+	}
 
 	resp, err := cfg.pokeApiClient.GetPokemon(&pokemon)
 	
@@ -25,6 +31,8 @@ func callbackCatch(cfg *config, args ...string) error {
 	if randNum > threshold {
 		return fmt.Errorf("failed to catch %s", pokemon)
 	}
+
+	cfg.caughtPokemon[pokemon] = resp 
 
 	fmt.Printf("%s caught\n", pokemon)
 
